@@ -1,0 +1,60 @@
+html {
+    background-color: maroon;
+    color: white;
+    font-family: fantasy;
+    margin-right: 20px;
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+}
+ 
+
+header {
+    text-align: center;
+    height: 10%;
+    font-size: 2em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section {
+    align-self: center;
+    position: relative;
+    z-index: -1;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.menu-section {
+    display:flex;
+    justify-content: space-evenly; 
+}
+
+.side-dishes, .main-dishes {
+    text-align: center;
+    background-color: wheat;
+    margin: 10px;
+    border-radius: 10px;
+    color: black;
+    width: 50%;
+    font-size: 1.0em;
+}
+
+.bill-section {
+    background-color: white;
+    width: 100%;
+    color: black;
+}
+
+
+
+
