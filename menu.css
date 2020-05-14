@@ -47,12 +47,24 @@ img {
     color: black;
     width: 50%;
     font-size: 1.0em;
+  
+}
+
+ul {
+      list-style-type: none;
+}
+
+.order-section {
+    align-self: center;
+    padding: 4px;
+    
 }
 
 .bill-section {
     background-color: white;
     width: 100%;
     color: black;
+    text-decoration: maroon;
 }
 
 
