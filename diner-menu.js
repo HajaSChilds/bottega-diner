@@ -41,10 +41,10 @@ function makeComment() {
 }
 
 main = [
-  { Lasagne: 15.99 },
+  { "Hamburger": 15.99 },
   { "Baked Salmon": 30.0 },
   { "Rotisserie Chicken": 12.99 },
-  { "Vegetable Quiche": 9.99 },
+  { "Quiche Lorraine": 9.99 },
 ];
 
 side_dish = [
