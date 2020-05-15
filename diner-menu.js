@@ -13,16 +13,19 @@
 
  */
 class Diner {
-  constructor({ main, side }) {
+  constructor({ main = 0, side = 0, user_selections = []}) {
     this.main = main;
     this.side = side;
+    this.user_selections = user_selections;
   }
 
   showMenu() {}
 
   itemCost() {}
 
-  sendBill() {}
+  sendBill() {
+
+  }
 }
 
 class Waitress extends Diner {
@@ -33,11 +36,21 @@ class Waitress extends Diner {
   welcome() {
     alert("Greetings! May I take your order today?");
   }
-}
 
-function makeComment() {
+  makeComment() {
   const waitress_says = comments[Math.floor(Math.random() * comments.length)];
   alert(waitress_says);
+}
+}
+
+
+
+function dinersChoice() {
+  let user_selections = []; 
+  
+  //create array of diner objects chosen by user
+
+  return user_selections;
 }
 
 main = [
@@ -61,11 +74,12 @@ comments = [
   "That's my absolute favorite",
 ];
 
-user_selections = [];
+const Randa = new Waitress(main, side, user_selections);
 
 //TODO: Run waitress greeting
+Randa.welcome();
 
-makeComment();
+Randa.makeComment();
 
 //TODO: Get user selections
 
