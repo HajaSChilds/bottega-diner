@@ -13,35 +13,35 @@
 
  */
 class Diner {
-  constructor({ main = [], side = []}) {
+  constructor(main = [], side = []) {
     this.main = main;
     this.side = side;
   }
 
-  showMenu( ){
-    
-  }
+  showMenu(main, side){
+     alert('Here are the entrees' + ':' + `${main}` + "... and here are the sides" + ":" + `${side}`);  
+    }  
 
   itemCost() {}
 
-  sendBill() {
-
-  }
+  sendBill() {}
 }
 
+
 class Waitress extends Diner {
-  constructor({}){
-      
+  constructor(comments,main,side){
+    super(main, side);
+    this.comments = comments;    
   }
 
   welcome() {
     alert("Greetings! May I take your order today?");
   }
 
-  makeComment() {
-  const waitress_says = comments[Math.floor(Math.random() * comments.length)];
-  alert(waitress_says);
-}
+  makeComment(comments) {
+    let waitress_says = comments[Math.floor(Math.random() * comments.length)];
+    alert(waitress_says);
+  }
 }
 
 
@@ -75,12 +75,14 @@ comments = [
   "That's my absolute favorite",
 ];
 
-const Randa = new Waitress(main, side, user_selections);
+randa = new Waitress(comments);
 
 //TODO: Run waitress greeting
-Randa.welcome();
+randa.welcome();
+ 
 
-Randa.makeComment();
+randa.makeComment(comments);
+ 
 
 //TODO: Get user selections
 

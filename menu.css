@@ -40,14 +40,15 @@ img {
      align-self: center;
 }
 
-.request-menu button {
+.request-menu button, .order-section button {
     background-color: green;
     color: white;
-    padding: 6px;
+    padding: 8px;
     font-size: 16px;
     border-radius: 6px;
     border:none;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .menu-section {
