@@ -13,13 +13,14 @@
 
  */
 class Diner {
-  constructor({ main = 0, side = 0, user_selections = []}) {
+  constructor({ main = [], side = []}) {
     this.main = main;
     this.side = side;
-    this.user_selections = user_selections;
   }
 
-  showMenu() {}
+  showMenu( ){
+    
+  }
 
   itemCost() {}
 
@@ -29,8 +30,8 @@ class Diner {
 }
 
 class Waitress extends Diner {
-  constructor({user_selections}){
-      this.user_selections = user_selections;
+  constructor({}){
+      
   }
 
   welcome() {

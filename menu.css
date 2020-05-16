@@ -32,6 +32,22 @@ main {
 
 img {
     border-radius: 10px;
+    width: 100%;
+    height:auto;
+}
+
+.request-menu {
+     align-self: center;
+}
+
+.request-menu button {
+    background-color: green;
+    color: white;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 6px;
+    border:none;
+    margin-bottom: 40px;
 }
 
 .menu-section {
@@ -46,8 +62,7 @@ img {
     border-radius: 10px;
     color: black;
     width: 50%;
-    font-size: 1.0em;
-  
+    font-size: 1.0em; 
 }
 
 ul {
