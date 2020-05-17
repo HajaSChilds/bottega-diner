@@ -82,6 +82,15 @@ ul {
     color: black;
 }
 
+@media only screen and (max-width: 700px) {
 
+    .menu-section {
+        flex-direction: column;
+    }
+
+    .side-dishes, .main-dishes {
+        width: 90%;
+    }    
+}
 
 
