@@ -24,7 +24,7 @@
             <h2>Prix Fixe - One Entree and Two Sides for $29.99</h2>
         </div>
 
-        <div class="request-menu"><button id="requestBtn">Request Pricelist</button></div>
+        <div class="request-menu"><button type="button" onclick="randa.showMenu(main,side_dish)"; return:false;>Request Pricelist</button></div>
 
         <div class="menu-section">
             <div class="main-dishes">
@@ -56,14 +56,4 @@
     </main>  
 </body>
     <script src="diner-menu.js"></script>
-    <script>
-        window.onload = function() {
-            var priceBtn = document.getElementById('requestBtn');
-
-            priceBtn.onClick = () => {
-                console.log('I was clicked');
-            };
-            
-        };
-    </script>
 </html>

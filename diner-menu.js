@@ -18,8 +18,9 @@ class Diner {
     this.side = side;
   }
 
-  showMenu(main, side){
-     alert('Here are the entrees' + ':' + `${main}` + "... and here are the sides" + ":" + `${side}`);  
+   showMenu(main, side){
+       
+     alert(`Here are the main dishes ${main}`);
     }  
 
   itemCost() {}
