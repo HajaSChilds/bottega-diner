@@ -23,7 +23,13 @@ class Diner {
      alert(`Here are the main dishes ${main}`);
     }  
 
-  itemCost() {}
+  itemCost(main,side) {
+    if(main.length() == 1 && side.length() == 2) {
+      return `Excellent, that will be our special of $29.99`
+    } else {
+
+    }
+  }
 
   sendBill() {}
 }
