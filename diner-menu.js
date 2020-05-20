@@ -13,23 +13,29 @@
 
  */
 class Diner {
-  constructor(main = [], side = []) {
+  constructor(main = {}, side = {}) {
     this.main = main;
     this.side = side;
   }
 
    showMenu(main, side){
-       
-     alert(`Here are the main dishes ${main}`);
-    }  
+     let entreePrices = Object.values(main);
+     let entrees = Object.keys(main)
+     let i;
+      for (i=0; i < entrees.length; i++) {
+         let sentence = `The ${entrees[i]} costs ${entreePrices[i]}`; 
+         alert(sentence);         
+      }
+      }
+    
 
   itemCost(main,side) {
     if(main.length() == 1 && side.length() == 2) {
-      return `Excellent, that will be our special of $29.99`
+      return `Excellent, that will be our special of $29.99`;
     } else {
 
-    }
   }
+ }
 
   sendBill() {}
 }
@@ -61,19 +67,19 @@ function dinersChoice() {
   return user_selections;
 }
 
-main = [
-  { "Hamburger": 15.99 },
-  { "Baked Salmon": 30.0 },
-  { "Rotisserie Chicken": 12.99 },
-  { "Quiche Lorraine": 9.99 },
-];
+main = {   
+   "Hamburger": 15.99,
+   "Baked Salmon": 30.00,
+   "Rotisserie Chicken": 12.99,
+   "Quiche Lorraine": 9.99 
+};
 
-side_dish = [
-  { "Tossed Salad": 3.99 },
-  { "Mashed Potatoes": 5.99 },
-  { "Steamed Rice": 4.99 },
-  { "French Fries": 3.99}
-];
+side_dish = { 
+   "Tossed Salad": 3.99,
+   "Mashed Potatoes": 5.99,
+   "Steamed Rice": 4.99,
+   "French Fries": 3.99
+};
 
 comments = [
   "A perfect pairing",
