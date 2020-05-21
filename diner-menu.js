@@ -9,35 +9,43 @@
     Total Cost - Adds options and returns total
     
     Roles -
+    Diner - All Functions
     Waitress - Makes comments, Tells Price of items
-
  */
+
+
 class Diner {
   constructor(main = {}, side = {}) {
     this.main = main;
     this.side = side;
   }
 
-   showMenu(main, side){
-     let entreePrices = Object.values(main);
-     let entrees = Object.keys(main)
+  showMenu(main, side){
+     const entreePrices = Object.values(main);
+     const entrees = Object.keys(main)
+     const sidePrices = Object.values(side);
+     const sides = Object.keys(side); 
      let i;
-      for (i=0; i < entrees.length; i++) {
+
+      for (i = 0; i < entrees.length; i++) {
          let sentence = `The ${entrees[i]} costs ${entreePrices[i]}`; 
-         alert(sentence);         
-      }
+         alert(sentence);
+         let sentenceTwo = `The ${sides[i]} costs ${sidePrices[i]}`; 
+         alert(sentenceTwo);        
+       }
       }
     
 
   itemCost(main,side) {
-    if(main.length() == 1 && side.length() == 2) {
+    if(Object.keys(main).length() == 1 && Object.keys(side).length() == 2) {
       return `Excellent, that will be our special of $29.99`;
     } else {
-
+      return `That will be `
   }
  }
 
-  sendBill() {}
+
+  sendBill(){}
 }
 
 
@@ -59,11 +67,15 @@ class Waitress extends Diner {
 
 
 
-function dinersChoice() {
-  let user_selections = []; 
+//TODO: Get user selections
+function dinersChoice(comments,main, side) {
+  let user_selections = [];  
   
   //create array of diner objects chosen by user
 
+
+  randa.makeComment(comments);
+  randa.itemCost(main,side);
   return user_selections;
 }
 
@@ -83,20 +95,16 @@ side_dish = {
 
 comments = [
   "A perfect pairing",
-  "That's a good choice",
+  "A smart choice",
   "Hmm...I wouldn't have put those together but ok",
   "That's my absolute favorite",
+  "The chef does an excellent job with it",
+  "I think you're going to love it"
 ];
 
 randa = new Waitress(comments);
 
 //TODO: Run waitress greeting
+
 randa.welcome();
  
-
-randa.makeComment(comments);
- 
-
-//TODO: Get user selections
-
-//TODO:
