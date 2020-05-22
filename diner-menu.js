@@ -33,20 +33,17 @@ class Diner {
          let sentenceTwo = `The ${sides[i]} costs ${sidePrices[i]}`; 
          alert(sentenceTwo);        
        }
-      }
-    
-
-  itemCost(main,side) {
-    if(Object.keys(main).length() == 1 && Object.keys(side).length() == 2) {
-      return `Excellent, that will be our special of $29.99`;
-    } else {
-      return `That will be `
-  }
- }
+    }
+  
+   
+    itemCost() {
+     };
 
 
-  sendBill(){}
-}
+    sendBill(){}; 
+    }
+
+
 
 
 class Waitress extends Diner {
@@ -67,16 +64,59 @@ class Waitress extends Diner {
 
 
 
+
 //TODO: Get user selections
-function dinersChoice(comments,main, side) {
-  let user_selections = [];  
+function dinersChoice(comments, main, side) {
   
-  //create array of diner objects chosen by user
-
-
   randa.makeComment(comments);
-  randa.itemCost(main,side);
-  return user_selections;
+  
+  let entrees = [];
+  let sides = [];
+  let runningTotal1 = 0;
+  let runningTotal2 = 0;
+  
+
+  let mealChoice = document.getElementsByTagName('input');
+  
+
+  //create array of diner objects chosen by user
+            entreesList(mealChoice);
+            sidesList(mealChoice);
+
+    function entreesList(mealChoice){
+      for(i = 0; i < mealChoice.length; i++) {
+          if (mealChoice[i].type="radio") {
+              if(mealChoice[i].checked) {
+                if(mealChoice[i].name.includes("Entree")) {    
+                  let food = mealChoice[i].id;
+                  console.log(food);
+                  let subtotal = main[_.startCase(food)];
+                  runningTotal1 += parseInt(subtotal);
+                  entrees.push(food);
+                  console.log(entrees);
+                }
+            } 
+         } 
+      }
+   }  
+    
+    function sidesList(mealChoice){
+      for(i = 0; i < mealChoice.length; i++) {
+          if (mealChoice[i].type="radio") {
+            if (mealChoice[i].checked) {
+              if(mealChoice[i].name.includes("Side")) {    
+            let food2 = mealChoice[i].id;
+            console.log(food2);
+            let subtotal2 = side[_.startCase(food2)];
+            runningTotal2 += parseInt(subtotal2);
+            sides.push(food2);
+            console.log(sides);
+         }
+       }
+     }
+       
+    }
+  } 
 }
 
 main = {   
@@ -107,4 +147,4 @@ randa = new Waitress(comments);
 //TODO: Run waitress greeting
 
 randa.welcome();
- 
+
