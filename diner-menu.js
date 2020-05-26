@@ -21,19 +21,34 @@ class Diner {
   }
 
   showMenu(main, side){
-     const entreePrices = Object.values(main);
-     const entrees = Object.keys(main)
-     const sidePrices = Object.values(side);
-     const sides = Object.keys(side); 
-     let i;
+     const mainMeals = Object.entries(main);
+     const sideMeals = Object.entries(side);
 
-      for (i = 0; i < entrees.length; i++) {
-         let sentence = `The ${entrees[i]} costs ${entreePrices[i]}`; 
-         alert(sentence);
-         let sentenceTwo = `The ${sides[i]} costs ${sidePrices[i]}`; 
-         alert(sentenceTwo);        
-       }
-    }
+
+    let allEntrees = mainMeals.map(loopMain);
+    alert(`Here are the Main Dishes:  \n  ${allEntrees}`)
+    
+    function loopMain(meals) {
+      let meal= meals[0];
+      let price = meals[1]; 
+      let sentence = (`${meal} : ${price} \n`);
+      return sentence;
+      };
+
+  
+    let allSides = sideMeals.map(loopSide);
+    alert(`Here are the Side Dishes:  \n  ${allSides}`)
+    
+
+    function loopSide(meals) {
+        let meal2= meals[0];
+        let price2 = meals[1]; 
+        let sentence2 = (`${meal2} : ${price2} \n`);
+        return sentence2;
+        };
+
+       //use map to create a variable */
+    } 
   
    
     itemCost() {
