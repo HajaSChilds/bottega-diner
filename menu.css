@@ -40,7 +40,7 @@ img {
      align-self: center;
 }
 
-.request-menu button, .order-section button {
+.request-menu button  {
     background-color: green;
     color: white;
     padding: 8px;
@@ -49,6 +49,18 @@ img {
     border:none;
     margin-bottom: 40px;
     margin-top: 40px;
+}
+
+.order-section button {
+    background-color: white;
+    color: green;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border:none;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    
 }
 
 .menu-section {

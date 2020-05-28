@@ -20,43 +20,40 @@ class Diner {
     this.side = side;
   }
 
-  showMenu(main, side){
-     const mainMeals = Object.entries(main);
-     const sideMeals = Object.entries(side);
-
+  showMenu(main, side) {
+    const mainMeals = Object.entries(main);
+    const sideMeals = Object.entries(side);
 
     let allEntrees = mainMeals.map(loopMain);
-    alert(`Here are the Main Dishes:  \n  ${allEntrees}`)
-    
-    function loopMain(meals) {
-      let meal= meals[0];
-      let price = meals[1]; 
-      let sentence = (`${meal} : ${price} \n`);
-      return sentence;
-      };
+    alert(`Here are the Main Dishes:  \n  ${allEntrees}`);
 
-  
+    function loopMain(meals) {
+      let meal = meals[0];
+      let price = meals[1];
+      let sentence = `${meal} : ${price} \n`;
+      return sentence;
+    }
+
     let allSides = sideMeals.map(loopSide);
-    alert(`Here are the Side Dishes:  \n  ${allSides}`)
-    
+    alert(`Here are the Side Dishes:  \n  ${allSides}`);
 
     function loopSide(meals) {
-        let meal2= meals[0];
-        let price2 = meals[1]; 
-        let sentence2 = (`${meal2} : ${price2} \n`);
-        return sentence2;
-        };
-
-       //use map to create a variable */
-    } 
-  
-   
-    itemCost() {
-     };
-
-
-    sendBill(){}; 
+      let meal2 = meals[0];
+      let price2 = meals[1];
+      let sentence2 = `${meal2} : ${price2} \n`;
+      return sentence2;
     }
+
+    //use map to create a variable */
+  }
+
+  // Grabs item cost from object and checks for special
+  itemCost() {}
+
+
+// Displays bill in window
+  sendBill() {}
+}
 
 
 
@@ -71,19 +68,30 @@ class Waitress extends Diner {
     alert("Greetings! May I take your order today?");
   }
 
+
   makeComment(comments) {
     let waitress_says = comments[Math.floor(Math.random() * comments.length)];
     alert(waitress_says);
   }
 }
 
+function clearButton(id) {
+  let selectedOne = document.getElementById(id);
+  if(selectedOne.checked == false) {
+    selectedOne.checked = true;
+    console.log("clicked: " + id);
+  }else {
+    selectedOne.checked = false;
+  }
 
+}
 
 
 //TODO: Get user selections
 function dinersChoice(comments, main, side) {
   
   randa.makeComment(comments);
+
   
   let entrees = [];
   let sides = [];
@@ -91,48 +99,74 @@ function dinersChoice(comments, main, side) {
   let runningTotal2 = 0;
   
 
-  let mealChoice = document.getElementsByTagName('input');
+  let mealChoices = document.getElementsByTagName('input');
+  let mainOptions = [...mealChoices].filter(vetMainOptions);
+  console.log(mainOptions);
+  
+ 
+  
   
 
   //create array of diner objects chosen by user
-            entreesList(mealChoice);
-            sidesList(mealChoice);
 
-    function entreesList(mealChoice){
-      for(i = 0; i < mealChoice.length; i++) {
-          if (mealChoice[i].type="radio") {
-              if(mealChoice[i].checked) {
-                if(mealChoice[i].name.includes("Entree")) {    
-                  let food = mealChoice[i].id;
+  
+  function vetMainOptions(entreeChoice, main){
+    if (entreeChoice.checked) {
+        if (entreeChoice.name.includes("Entree")) {
+          // let mainSelection = entreeChoice.id;
+           //entrees.push(mainSelection); 
+           console.log(entreeChoice.id);
+           return entreeChoice.id;
+         
+        }
+       // console.log("new " + entrees)
+       // return entrees;
+    }
+  } 
+}
+  /* alert( `So you ordered the ${entreesList} `)        
+    
+            entreesList(mealChoices);
+            sidesList(mealChoices);
+
+    function entreesList(mealChoices){
+      for(i = 0; i < mealChoices.length; i++) {
+          if (mealChoices[i].type="radio") {
+              if(mealChoices[i].checked) {
+                if(mealChoices[i].name.includes("Entree")) {    
+                  let food = mealChoices[i].id;
                   console.log(food);
                   let subtotal = main[_.startCase(food)];
                   runningTotal1 += parseInt(subtotal);
                   entrees.push(food);
                   console.log(entrees);
+                  console.log(runningTotal1);
+                
                 }
             } 
          } 
       }
    }  
-    
-    function sidesList(mealChoice){
-      for(i = 0; i < mealChoice.length; i++) {
+    /*
+    function sidesList(mealChoices){
+      for(i = 0; i < mealChoices.length; i++) {
           if (mealChoice[i].type="radio") {
-            if (mealChoice[i].checked) {
-              if(mealChoice[i].name.includes("Side")) {    
-            let food2 = mealChoice[i].id;
+            if (mealChoices[i].checked) {
+              if(mealChoices[i].name.includes("Side")) {    
+            let food2 = mealChoices[i].id;
             console.log(food2);
             let subtotal2 = side[_.startCase(food2)];
             runningTotal2 += parseInt(subtotal2);
             sides.push(food2);
             console.log(sides);
+            console.log(runningTotal2);
          }
        }
      }
        
     }
   } 
-}
+}*/
 
 main = {   
    "Hamburger": 15.99,
@@ -162,4 +196,6 @@ randa = new Waitress(comments);
 //TODO: Run waitress greeting
 
 randa.welcome();
+
+
 
