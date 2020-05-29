@@ -6,11 +6,11 @@
 /* Functions -  
     Show Menu - Prints entire Menu
     Item Cost - Tells cost of the item
-    Total Cost - Adds options and returns total
+    Total Cost/Send Bill - Adds options and returns total on screen
     
     Roles -
     Diner - All Functions
-    Waitress - Makes comments, Tells Price of items
+    Waitress - Inherits from Diner - Makes comments, Tells Price of items
  */
 
 
@@ -30,7 +30,7 @@ class Diner {
     function loopMain(meals) {
       let meal = meals[0];
       let price = meals[1];
-      let sentence = `${meal} : ${price} \n`;
+      let sentence = `${meal} : $${price} \n`;
       return sentence;
     }
 
@@ -40,7 +40,7 @@ class Diner {
     function loopSide(meals) {
       let meal2 = meals[0];
       let price2 = meals[1];
-      let sentence2 = `${meal2} : ${price2} \n`;
+      let sentence2 = `${meal2} : $${price2} \n`;
       return sentence2;
     }
 
@@ -48,7 +48,7 @@ class Diner {
   }
 
   // Grabs item cost from object and checks for special
-  itemCost() {}
+ 
 
 
 // Displays bill in window
@@ -59,39 +59,48 @@ class Diner {
 
 
 class Waitress extends Diner {
-  constructor(comments,main,side){
+  constructor(comments, main, side) {
     super(main, side);
-    this.comments = comments;    
+    this.comments = comments;
   }
 
   welcome() {
     alert("Greetings! May I take your order today?");
   }
 
-
   makeComment(comments) {
     let waitress_says = comments[Math.floor(Math.random() * comments.length)];
     alert(waitress_says);
   }
-}
 
-function clearButton(id) {
-  let selectedOne = document.getElementById(id);
-  if(selectedOne.checked == false) {
-    selectedOne.checked = true;
-    console.log("clicked: " + id);
-  }else {
-    selectedOne.checked = false;
+  itemCost(mainOptions, sideOptions, main) {
+    if (mainOptions.length == 1 && sideOptions.length == 2) {
+      alert(`Excellent, you ordered the special! That will be $29.99`);
+      alert("You're getting a great deal");
+    } else if (mainOptions.length == 4 && sideOptions.length == 4) { 
+      alert (`Wow, you must be hungry, let me get that right out to you!!!`);
+    } else {
+
+      this.getPrices(main);
+
+    }
   }
-
+  
+  getPrices(main, mainOptions, side, sideOptions) {
+    
+          
+ }
 }
+
+
 
 
 //TODO: Get user selections
 function dinersChoice(comments, main, side) {
   
   randa.makeComment(comments);
-
+ 
+  console.log("check: " + main["Hamburger"]);
   
   let entrees = [];
   let sides = [];
@@ -101,28 +110,40 @@ function dinersChoice(comments, main, side) {
 
   let mealChoices = document.getElementsByTagName('input');
   let mainOptions = [...mealChoices].filter(vetMainOptions);
+  let sideOptions = [...mealChoices].filter(vetSideOptions);
   console.log(mainOptions);
-  
- 
+  console.log(sideOptions)
+
+  randa.itemCost(mainOptions, sideOptions, main);
   
   
 
   //create array of diner objects chosen by user
 
   
-  function vetMainOptions(entreeChoice, main){
+  function vetMainOptions(entreeChoice){
     if (entreeChoice.checked) {
         if (entreeChoice.name.includes("Entree")) {
           // let mainSelection = entreeChoice.id;
            //entrees.push(mainSelection); 
            console.log(entreeChoice.id);
-           return entreeChoice.id;
-         
+           return entreeChoice;   
         }
        // console.log("new " + entrees)
        // return entrees;
     }
   } 
+
+  function vetSideOptions(sideChoice){
+    if (sideChoice.checked) {
+        if (sideChoice.name.includes("Side")) {
+          // let mainSelection = entreeChoice.id;
+           //entrees.push(mainSelection); 
+           console.log(sideChoice.id);
+           return sideChoice;   
+        }
+    }
+  }
 }
   /* alert( `So you ordered the ${entreesList} `)        
     
@@ -168,12 +189,14 @@ function dinersChoice(comments, main, side) {
   } 
 }*/
 
+
 main = {   
    "Hamburger": 15.99,
    "Baked Salmon": 30.00,
    "Rotisserie Chicken": 12.99,
    "Quiche Lorraine": 9.99 
 };
+
 
 side_dish = { 
    "Tossed Salad": 3.99,
